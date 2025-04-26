@@ -70,7 +70,6 @@ Configure <startDate> <endDate> to filter transaction data that will be processe
     * Time complexity is O(n) on this process
 2. Iterate system transaction map, search the bank statement with the same key.
     * During iteration, delete matched transaction from both map.
-        * Notes: This algorithm can be improved with parallelization on this iteration. But need to ensure the process is done safely because it can lead to inconsistent state and memory corruption. Uses mechanisms like sync.Mutex or sync.RWMutex to protect the map during access.
     * At the end of the iteration, we got the unmatched transaction to be displayed on result.
     * Time complexity is O(n) for this iteration
 3. Calculate all the output metrics, and print result.
